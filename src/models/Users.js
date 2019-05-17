@@ -39,9 +39,9 @@ UsersSchema.methods.generateJWT = function () {
 
     const token = jwt.sign(
         {
-            sub: 'admin', // for jwt boot spring
+            sub: 'user', // for jwt boot spring
             email: this.email,
-            roles: [ 'ROLE_ADMIN' ],
+            roles: [ 'ROLE_USER' ],
             id: this._id,
             exp: parseInt(expirationDate.getTime() / 1000, 10),
         },

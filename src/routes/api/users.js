@@ -6,8 +6,7 @@ const auth = require('../auth');
 const Users = mongoose.model('Users');
 
 //POST google login route (optional, everyone has access)
-router.post('/google',
-    auth.optional,
+router.post('/google', auth.optional,
     (req, res, next) => {
         const email = google.token(req, res, next);
 
@@ -40,9 +39,8 @@ router.post('/google',
 
     });
 
-
 //POST new user route (optional, everyone has access)
-router.post('/', auth.optional, (req, res, next) => {
+router.post('/register', auth.optional, (req, res, next) => {
     const {body: {user}} = req;
 
     if (!user.email) {
